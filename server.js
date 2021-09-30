@@ -36,7 +36,9 @@ app.use('/users', userController);
 const sessionsController = require('./controllers/sessions');
 app.use('/sessions', sessionsController);
 
-
+app.get('/', (req, res) => {
+	res.render('index.ejs');
+});
 
 // Listener
 const PORT = process.env.PORT;
