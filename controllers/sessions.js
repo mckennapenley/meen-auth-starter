@@ -12,16 +12,18 @@ const User = require('../models/user.js');
 
 // New (login page)
 sessionsRouter.get('/new', (req, res) => {
-	res.render('sessions/new.ejs')
-})
+	res.render('sessions/new.ejs', {
+		currentUser: req.session.currentUser
+	});
+});
 
 
 // Delete (logout route)
 sessionsRouter.delete('/', (req, res) => {
   req.session.destroy((error) => {
-      res.redirect('/');
+    res.redirect('/');
   });
-})
+});
 
 // Create (login route)
 sessionsRouter.post('/', (req, res) => {
